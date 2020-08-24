@@ -11,4 +11,6 @@ LABEL \
     org.opencontainers.image.licenses="MIT" \
     org.opencontainers.image.created="2020-08-24 00:00:00-08:00"
 
+RUN yum install -y git zlib
+
 CMD ["/bin/bash"]
