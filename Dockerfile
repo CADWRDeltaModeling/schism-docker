@@ -24,4 +24,12 @@ RUN curl -L https://github.com/CADWRDeltaModeling/schism-docker/releases/downloa
 RUN tar -xf schism_v5.8.tar.gz
 RUN rm schism_v5.8.tar.gz
 
+RUN groupadd -g 2000 schism
+RUN useradd -m -u 2000 -g schism schism
+USER schism
+
+ENV PATH="$PATH:/opt/schism/5.8.0"
+
+RUN echo "source /opt/intel/psxe_runtime_2020/linux/bin/psxevars.sh intel64" >> /home/schism/.bashrc
+
 CMD ["/bin/bash"]
